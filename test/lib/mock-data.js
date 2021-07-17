@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const { v4: uuid } = require('uuid')
 const authService = require('app/modules/auth')
 const userService = require('app/modules/user')
+const noteService = require('app/modules/note')
 
 class MockData {
   /**
@@ -55,6 +56,20 @@ class MockData {
       options
     )
     return userService.create(data)
+  }
+
+  /**
+   * @method mockNote
+   */
+  mockNote(options = {}) {
+    const data = Object.assign(
+      {
+        title: uuid(),
+        message: uuid()
+      },
+      options
+    )
+    return noteService.create(data)
   }
 }
 

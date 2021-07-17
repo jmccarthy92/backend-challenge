@@ -6,14 +6,44 @@ To better assess a candidate's backend development skills, we would like to prov
 
 The goal of this project is to familiarize yourself with the backend Node.js API in this repository and then implement missing features and tests.
 
-> The project must be completed with *Node.js v14* or later
+> The project must be completed with _Node.js v14_ or later
 
 1. Modify the `GET /dev/status` route to only return a `200 OK` if the server is currently connected to the database
+
+> Changes:
+> <br> `app/api/status/controller`
+
 2. Add a test for `PUT /dev/user/:id` that shows the current user must match the user id in the url in order for the update to be successful
-3. Create a new module called `notes` that lets a user a save notes to their account. A `Note` should simply have a title and a message in addition to the common properties such as id, createdAt and modifiedAt.
+
+> Changes:
+> <br> `app/api/user/controller`
+> <br> `test/api/user/update-test`
+
+3. Create a new module called `notes` that lets a user a save notes to their account. A `Note` should simply have a title and a message in
+   addition to the common properties such as id, createdAt and modifiedAt.
+
+> Changes:
+> <br> `modules/note/`
+
 4. Add the route `GET /dev/user/:id/notes` which should list all notes for that user. Remember to ensure the user id in the url matches the current user making the request
+
+> Changes:
+> <br> `app/api/note/`
+> <br> `app/api/index`
+
 5. Add a test for the previous route to show that it works correctly
+
+> Changes:
+> <br> `test/lib/mock-data`
+> <br> `test/api/note/read-by-user-id`
+
 6. Add a route `POST /dev/note` which should let a logged in user create a note and save it to their account
+
+> Changes:
+> <br> `app/api/note/controller`
+> <br> `app/api/note/router`
+> <br> `app/api/note/validator`
+> <br> `test/api/note/create-note`
 
 ## Project Setup
 
