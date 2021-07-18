@@ -16,6 +16,7 @@ exports.read = async (req, res) => {
  * @method create
  */
 exports.create = async (req, res) => {
-  const note = await noteService.create({ user: req.userId, ...req.body })
+  const { message, title } = req.body
+  const note = await noteService.create({ message, title, user: req.userId })
   res.status(200).send(note)
 }
